@@ -3,6 +3,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
   end
 
   def new
@@ -19,4 +20,10 @@ class OffersController < ApplicationController
 
   def destroy
   end
+
+private
+
+def offer_params
+  params.require(:offer).permit(:title, :description, :category, :price)
+end
 end

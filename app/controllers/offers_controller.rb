@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   def index
+    @offers = Offer.all
   end
 
   def show
@@ -7,9 +8,14 @@ class OffersController < ApplicationController
   end
 
   def new
+    @offer = Offer.new
   end
 
   def create
+    @offer = Offer.new(offer_params)
+    @offer.user = current_user
+    @offer.save
+    redirect_to offer_path(@offer)
   end
 
   def edit
@@ -20,10 +26,13 @@ class OffersController < ApplicationController
 
   def destroy
   end
-
+  
 private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :category, :price)
+    params.require(:offer).permit(:title, :description, :category, :price, :user_id)
+
+  def set_offer
+    @offer = Offer.find(params[:id])
   end
 end

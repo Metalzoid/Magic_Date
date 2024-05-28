@@ -5,11 +5,13 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+    <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face) %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.select :role, User::ROLES.map { |role| [role.titleize, role] }, prompt: "Select a role" %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,

@@ -1,73 +1,18 @@
-<%= simple_form_for @offer do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :price %>
-  <%= f.button :submit, class: 'btn-primary' %>
-<% end %>
-
-<table class="table table-dark">
-  <thead>
-    ...
-  </thead>
-  <tbody>
-    <tr class="table-active">
-      ...
-    </tr>
-    <tr>
-      ...
-    </tr>
-    <tr>
-      <th scope="row">Du 01/05/2024 au 31/05/2024</th>
-      <td colspan="2" class="table-active">Total des commandes : 3</td>
-      <td>Nombre de clients : 3</td>
-      <td>Moyenne notes : 4,5/5</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table caption-top">
-  <thead>
-    <tr>
-      <th scope="col">Commande</th>
-      <th scope="col">Date</th>
-      <th scope="col">Client</th>
-      <th scope="col">Total</th>
-      <th scope="col">Statut de mission</th>
-      <th scope="col">Statut de paiement</th>
-      <th scope="col">Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">#0145</th>
-      <td>17/05/2024</td>
-      <td>Otto Mark</td>
-      <td>25€</td>
-      <td>En cours</td>
-      <td>En attente de paiement</td>
-      <td>.</td>
-      <td>Note mission : 4</td>
-    </tr>
-    <tr>
-      <th scope="row">#0144</th>
-      <td>15/05/2024</td>
-      <td>Thornton</td>
-      <td>20€</td>
-      <td>Terminée</td>
-      <td>Effectué</td>
-      <td>20/05/2024</td>
-      <td>Note mission : 5</td>
-    </tr>
-    <tr>
-      <th scope="row">#0143</th>
-      <td>07/05/2024</td>
-      <td>Victor Lao</td>
-      <td>29€</td>
-      <td>Terminée</td>
-      <td>Effectué</td>
-      <td>12/05/2024</td>
-      <td>Note mission : 4,5</td>
-    </tr>
-  </tbody>
-</table>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 form-container">
+        <div class="text-center mb-4">
+          <%= cl_image_tag current_user.photo.key, height: 150, style: "border-radius: 50%;" %>
+          <h4>Audrey</h4>
+        </div>
+        <h2 class="text-center mb-4">Poster votre offre</h2>
+        <%= simple_form_for @offer do |f| %>
+          <%= f.input :title %>
+          <%= f.input :category %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :price %>
+          <%= f.button :submit, class: "btn btn-purple" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

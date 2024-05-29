@@ -1,24 +1,32 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center">
-    <h1>Liste de toutes les offres</h1>
+    <h1>Trouve ton Charo</h1>
     <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Lists</h3>
-      <%= link_to "Create a new offer", new_offer_path, class: "btn btn-primary" %>
+    <h3 class="mb-0">Liste des profils</h3>
+      <%= link_to "Créer une offre", new_offer_path, class: "btn btn-primary border-radius-lg border-white" %>
  </div>
-  <div class="row">
+  <div class="row pt-5">
     <% @offers.each do |offer| %>
-      <div class="col-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to offer_path(offer) do %>
-           <div class="card border-radius" style="width: 15rem; height: 15rem;">
-              <%= cl_image_tag offer.user.photo.key, class: "card-img-top" %>
-            <div class="card-body bg-purple">
-              <h5 class="card-title"><%= offer.title %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+      <div class="card col-12 col-sm-6 col-md-4 col-xl-3 mb-3 d-flex align-items-stretch">
+        <%= link_to offer_path(offer), class: "text-decoration-none text-white" do %>
+          <div class="border-radius w-100 h-100">
+              <div class= "card-top">
+                <div style="height: 400px; width: 100%; background-repeat: no-repeat; background-size: cover; background-image: url('<%= cl_image_path offer.user.photo.key, transformation: { dpr: "auto", responsive: true, width: "auto", crop: "scale"} %>')"></div>
+                <div class= "image-name text-white"><%= offer.user.name %></div>
+              </div>
+              <div class= "card-bottom1">
+                <div style="height: 200px" class="card-body bg-purple">
+                    <h5 class="card-title"><%= offer.title %></h5>
+                    <p class="card-description"><%= offer.description %></p>
+                </div>
+              </div>
+              <div class= "card-bottom2 bg-purple">
+                <p class="card-price d-flex flex column justify-content-end mt-auto p-2"><%= offer.price %> € / jour</p>
+              </div>
           </div>
         <% end %>
       </div>

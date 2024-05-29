@@ -1,16 +1,16 @@
 <div class="box my-5 text-center w-100 row justify-content-center">
   <div class="titre col-4 start-50 align-items-center">
-    <h1>Offre de <%= @offer.user %></h1>
+    <h1>Offre de <%= @offer.user.name %></h1>
   </div>
 </div>
 
 <div style="max-width: 1200px; margin: 0 auto;" class="p-5">
   <div class="row g-0 justify-content-around  mt-5">
     <div class="col-4">
-     <%= cl_image_tag(@offer.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "img-fluid rounded-start" ) %>
+     <%= cl_image_tag(@offer.user.photo.key, width: 180, height: 180, crop: :thumb, gravity: :face, class: "img-fluid", style: "border-radius: 50%;" ) %>
     </div>
     <div class="col-8 bg-purple">
-      <div class="card-body">
+      <div class="card-body p-3">
         <h1 class="card-title"><%= @offer.title %></h1>
         <p class="card-text"><p><%= @offer.description %></p></p>
         <p class="card-text"><small class="text-body-secondary">Prestation : <%= @offer.category %></small></p>

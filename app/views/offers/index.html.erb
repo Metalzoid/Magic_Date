@@ -7,7 +7,9 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Liste des profils</h3>
-      <%= link_to "Créer une offre", new_offer_path, class: "btn btn-primary border-radius-lg border-white" %>
+      <% if user_signed_in? %>
+        <%= link_to "Créer une offre", new_offer_path, class: "btn btn-primary border-radius-lg border-white" if current_user.role == "vendor"%>
+      <% end %>
  </div>
   <div class="row pt-5">
     <% @offers.each do |offer| %>
@@ -15,7 +17,7 @@
         <%= link_to offer_path(offer), class: "text-decoration-none text-white" do %>
           <div class="border-radius w-100 h-100">
               <div class= "card-top">
-                <div style="height: 400px; width: 100%; background-repeat: no-repeat; background-size: cover; background-image: url('<%= cl_image_path offer.user.photo.key, transformation: { dpr: "auto", responsive: true, width: "auto", crop: "scale"} %>')"></div>
+                <div style="height: 400px; width: 100%; background-repeat: no-repeat; background-size: cover; background-image: url('<%= cl_image_path offer.user.photo.key, transformation: { dpr: "auto", responsive: true, width: "auto", crop: "scale", gravity: :face} %>')"></div>
                 <div class= "image-name text-white"><%= offer.user.name %></div>
               </div>
               <div class= "card-bottom1">

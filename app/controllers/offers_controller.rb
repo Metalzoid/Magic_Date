@@ -1,4 +1,5 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @offers = Offer.all
   end
@@ -27,7 +28,7 @@ class OffersController < ApplicationController
   def destroy
   end
 
-private
+  private
 
   def offer_params
     params.require(:offer).permit(:title, :description, :category, :price, :user_id)

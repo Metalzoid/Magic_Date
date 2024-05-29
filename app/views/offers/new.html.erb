@@ -1,7 +1,18 @@
-<%= simple_form_for @offer do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :category %>
-  <%= f.input :price %>
-  <%= f.button :submit, class: 'btn-primary' %>
-<% end %>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 form-container">
+        <div class="text-center mb-4">
+          <%= cl_image_tag current_user.photo.key, height: 150, style: "border-radius: 50%;" %>
+          <h4>Audrey</h4>
+        </div>
+        <h2 class="text-center mb-4">Poster votre offre</h2>
+        <%= simple_form_for @offer do |f| %>
+          <%= f.input :title %>
+          <%= f.input :category %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :price %>
+          <%= f.button :submit, class: "btn btn-purple" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -8,7 +8,7 @@
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Liste des profils</h3>
       <% if user_signed_in? %>
-        <%= link_to "Créer une offre", new_offer_path, class: "btn btn-primary border-radius-lg border-white" if current_user.role == "vendor"%>
+        <%= link_to "Créer une offre", new_offer_path, class: "btn btn-purple border-radius-lg border-white" if current_user.role == "vendor"%>
       <% end %>
  </div>
   <div class="row pt-5">
@@ -18,7 +18,7 @@
           <div class="border-radius w-100 h-100">
               <div class= "card-top">
                 <div style="height: 400px; width: 100%; background-repeat: no-repeat; background-size: cover; background-image: url('<%= cl_image_path offer.user.photo.key, transformation: { dpr: "auto", responsive: true, width: "auto", crop: "scale", gravity: :face} %>')"></div>
-                <div class= "image-name text-white"><%= offer.user.name %></div>
+                <div class= "image-name fs-4"><%= offer.user.name %></div>
               </div>
               <div class= "card-bottom1">
                 <div style="height: 200px" class="card-body bg-purple">

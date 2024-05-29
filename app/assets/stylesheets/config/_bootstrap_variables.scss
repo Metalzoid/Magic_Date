@@ -18,7 +18,6 @@ $info: $yellow;
 $danger: $red;
 $warning: $orange;
 $secondary: $purple;
-$purple: #452757;
 
 // Buttons & inputs' radius
 $border-radius-sm: 0.0625rem;
@@ -29,5 +28,13 @@ $border-radius-xxl: 1rem;
 
 // Override other variables below!
 $theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light-gray,
+  "dark": $dark,
   "purple": $purple,
 );

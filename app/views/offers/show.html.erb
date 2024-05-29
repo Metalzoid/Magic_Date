@@ -1,24 +1,26 @@
-
-<div class="container text-center mt-5 bg-light  rounded mb-5 " style="max-width: 550px;>
-  <div class="row">
-    <div class="col-8 offset-md-2 fs-1">Offre de Audrey !</div>
+<div class="box my-5 text-center w-100 row justify-content-center">
+  <div class="titre col-4 start-50 align-items-center">
+    <h1>Offre de <%= @offer.user %></h1>
   </div>
 </div>
 
-<div class="card mb-3" style="max-width: 700px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-     <%# <%= cl_image_tag(current_user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "img-fluid rounded-start" ) %> %>
+<div style="max-width: 1200px; margin: 0 auto;" class="p-5">
+  <div class="row g-0 justify-content-around  mt-5">
+    <div class="col-4">
+     <%= cl_image_tag(@offer.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, class: "img-fluid rounded-start" ) %>
     </div>
-    <div class="col-md-8">
+    <div class="col-8 bg-purple">
       <div class="card-body">
-        <h5 class="card-title"><h1><%= @offer.title %></h1></h5>
+        <h1 class="card-title"><%= @offer.title %></h1>
         <p class="card-text"><p><%= @offer.description %></p></p>
-        <p class="card-text"><small class="text-body-secondary"><%= @offer.category %></small></p>
-        <p><%= @offer.price %>
-          <%= link_to 'Edit', edit_offer_path(@offer) %>
-          <%= link_to 'Back', root_path %>
+        <p class="card-text"><small class="text-body-secondary">Prestation : <%= @offer.category %></small></p>
+        <p class="card-text"><small class="text-body-secondary">Tarif : <%= @offer.price %> € / jours</small></p>
       </div>
     </div>
+
   </div>
+  <% if @offer.user == current_user %>
+    <%= link_to 'Editer cette offre', edit_offer_path(@offer), class: "btn btn-primary m-5" %>
+    <%= link_to 'Supprimer cette offre', offer_path(@offer), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn btn-primary m-5" %>
+  <% end %>
 </div>

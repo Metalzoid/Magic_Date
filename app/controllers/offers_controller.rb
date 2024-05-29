@@ -25,9 +25,12 @@ class OffersController < ApplicationController
   end
 
   def destroy
+    @offer = Offer.find(params[:id])
+    @offer.destroy
+    redirect_to root_path, status: :see_other, notice: "L'offre a été supprimée avec succès."
   end
 
-private
+  private
 
   def offer_params
     params.require(:offer).permit(:title, :description, :category, :price, :user_id)

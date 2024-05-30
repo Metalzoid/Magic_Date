@@ -1,15 +1,15 @@
 class BookingsController < ApplicationController
+  before_action :set_offer, only: %i[new create]
+
   def index
     @bookings = Booking.all
   end
 
   def new
     @booking = Booking.new
-    @offer = Offer.find(params[:offer_id])
   end
 
   def create
-    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.offer = @offer
@@ -22,9 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
   end
 
   private

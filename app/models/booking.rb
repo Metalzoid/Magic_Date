@@ -7,4 +7,7 @@ class Booking < ApplicationRecord
   validates :end_date, comparison: { greater_than: :start_date },
                        presence: true
   validates :comment, presence: true
+  validates 
+
+  STATUS = ["En attente", "En cours", "Effectuée", "Refusée"]
 end

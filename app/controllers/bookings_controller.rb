@@ -1,6 +1,4 @@
 class BookingsController < ApplicationController
-  STATUS = ["En attente", "Effectuée", "Refusée"]
-
   def index
     @bookings = Booking.all
   end

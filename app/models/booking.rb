@@ -10,6 +10,4 @@ class Booking < ApplicationRecord
                        presence: true
   validates :comment, presence: true
   validates :status, presence: true, inclusion: { in: STATUS }
-
-
 end

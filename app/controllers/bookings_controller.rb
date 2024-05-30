@@ -1,5 +1,8 @@
 class BookingsController < ApplicationController
+  STATUS = ["En attente", "Effectuée", "Refusée"]
+
   def index
+    @bookings = Booking.all
   end
 
   def new
@@ -12,7 +15,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.offer = @offer
-    @booking.status = "Pending"
+    @booking.status = "En attente"
     if @booking.save
       redirect_to booking_path(@booking)
     else

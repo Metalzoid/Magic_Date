@@ -1,1 +1,18 @@
-edit offers
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 form-container">
+        <div class="text-center mb-4" style="background: transparent;">
+          <%= cl_image_tag current_user.photo.key, height: 150, gravity: "face", crop: "fill", style: "border-radius: 50%" %>
+          <h4 class="my-2"><%= current_user.name %></h4>
+        </div>
+        <h2 class="text-center mb-4">Poster votre offre</h2>
+        <%= simple_form_for @offer do |f| %>
+          <%= f.input :title , label: "Titre de l'offre" %>
+          <%= f.input :category, label: 'Prestation', collection: Offer::CATEGORIES %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :price, label: 'Prix' %>
+          <%= f.button :submit, class: "btn btn-purple", value: "Éditer votre offre" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,11 +1,11 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :set_offer, only: %i[show edit destroy update]
   def index
     @offers = Offer.all
   end
 
   def show
-    @offer = Offer.find(params[:id])
   end
 
   def new
@@ -26,6 +26,11 @@ class OffersController < ApplicationController
   end
 
   def update
+    if @offer.update(offer_params)
+      redirect_to offer_path(@offer)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -12,8 +12,7 @@
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
-  box-shadow:  #987070 0px 19px 38px, rgba(243, 246, 244, 0.22) 0px 15px 12px;
-
+  box-shadow: #987070 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   // &:hover {
   //   transform: scale(1.03);
   //   box-shadow: 2px 2px 20px rgba(0, 0, 0, 1);
@@ -46,13 +45,6 @@
   box-shadow:  #987070 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-body {
-  background-image: url('https://img.freepik.com/premium-photo/abstract-blur-gradient-wallpaper_7636-1562.jpg?size=626&ext=jpg'); // Chemin relatif vers l'image
-  background-size: cover; // Ajuste l'image pour couvrir tout l'écran
-  background-repeat: no-repeat; // Empêche la répétition de l'image
-  background-position: center center; // Centre l'image horizontalement et verticalement
-}
-
 .button-85 {
   padding: 0.6em 2em;
   border: none;
@@ -72,13 +64,8 @@ body {
   content: "";
   background: linear-gradient(
     45deg,
-
-
-    #c800ff,
-    #7a00ff,
-     #c800ff,
-    #e819dd,
-
+    $purple,
+    #e100ff
   );
   position: absolute;
   top: -2px;
@@ -89,7 +76,7 @@ body {
   -webkit-filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
+  animation: glowing-button-85 5s linear infinite;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
@@ -99,7 +86,7 @@ body {
     background-position: 0 0;
   }
   50% {
-    background-position: 400% 0;
+    background-position: 100% 0;
   }
   100% {
     background-position: 0 0;

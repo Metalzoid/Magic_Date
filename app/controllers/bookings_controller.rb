@@ -2,7 +2,8 @@ class BookingsController < ApplicationController
   before_action :set_offer, only: %i[new create]
 
   def index
-    @bookings = Booking.all
+    @bookings_client = Booking.where(user: current_user)
+    @bookings_vendor = Booking.joins(:offer).where(offers: { user: current_user })
   end
 
   def new

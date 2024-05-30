@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :offer
-  has_many :ratings, dependent: :destroy
+  has_one :rating, dependent: :destroy
   STATUS = ["En attente", "En cours", "Effectuée", "Refusée"]
 
   validates :total_price, presence: true, numericality: { only_integer: true }

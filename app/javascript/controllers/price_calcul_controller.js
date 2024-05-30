@@ -13,4 +13,7 @@ export default class extends Controller {
       this.totalpricehiddenTarget.value = days * this.offerpriceValue;
     }
   }
+  connect() {
+    this.totalpriceTarget.innerText = "0 €"
+  }
 }

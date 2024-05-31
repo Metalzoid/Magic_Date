@@ -14,5 +14,15 @@
   .nav-link {
     color: $body-color;
     font-size: 30px !important;
+    padding: 0;
+    margin-left: 15px;
+    transition: all 0.4s;
+    border-radius: 50%;
+
+    .profil-image {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+    }
   }
 }

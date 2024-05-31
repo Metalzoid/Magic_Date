@@ -8,8 +8,8 @@
       <h2 class="text-center mb-4">Votre commande</h2>
       <div>
         <%= simple_form_for [@booking, @rating] do |f| %>
-          <%= f.input :score, collection: 0..5 %>
-          <%= f.button :submit, class: "btn btn-purple mb-5 mt-3", value: "Déposer un avis !" %>
+          <%= f.input :score, collection: 0..5, include_blank: false  %>
+          <%= f.button :submit, class: "btn btn-purple mb-5 mt-3", value: "Déposer un avis !"%>
         <% end %>
       </div>
     </div>

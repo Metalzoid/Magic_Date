@@ -9,7 +9,7 @@
       <div>
         <%= simple_form_for [@booking, @rating] do |f| %>
           <%= f.input :score, collection: 0..5 %>
-          <%= f.button :submit, class: "btn btn-purple mb-5 mt-3", value: "Créer votre commande" %>
+          <%= f.button :submit, class: "btn btn-purple mb-5 mt-3", value: "Déposer un avis !" %>
         <% end %>
       </div>
     </div>

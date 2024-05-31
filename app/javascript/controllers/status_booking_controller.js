@@ -4,6 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form"];
   status() {
-    console.log(this.formTarget.querySelector("#booking_status").value)
+    this.formTarget.submit()
   }
 }

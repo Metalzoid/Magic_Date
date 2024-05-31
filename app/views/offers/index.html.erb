@@ -30,11 +30,14 @@
                         <%= offer.description %>
                       <% end %>
                     </p>
-                    <p>Moyenne : <%= offer.user.average %></p>
                 </div>
               </div>
-              <div class= "card-bottom2 bg-purple" style="border-radius: 0 0 12px 12px">
-                <p class="card-price d-flex flex column justify-content-end mt-auto p-2"><%= offer.price %> € / jour</p>
+              <div class= "card-bottom2 bg-purple d-flex justify-content-between px-2" style="border-radius: 0 0 12px 12px">
+                <div class="flex flex-column">
+                  <p class="m-0">Note:</p>
+                  <p class="card-price"><%= offer.user.average %> / 5</p>
+                </div>
+                <p class="card-pric p-2"><%= offer.price %> € / jour</p>
               </div>
           </div>
         <% end %>

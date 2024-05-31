@@ -30,8 +30,8 @@
                 <div style="height: 200px" class="card-body bg-purple">
                     <h5 class="card-title"><%= offer.title %></h5>
                     <p class="card-description">
-                      <% if offer.description.size >= 50 %>
-                        <%= offer.description[0..50]%> ...
+                      <% if offer.description.size >= 70 %>
+                        <%= offer.description[0..70]%> ...
                       <% else %>
                         <%= offer.description %>
                       <% end %>

@@ -26,7 +26,7 @@
   </div>
   <% if @offer.user != current_user %>
     <div class="row mt-5 justify-content-center">
-      <%= link_to "LOUER !", new_offer_booking_path(@offer), class: "btn btn-purple col-3" %>
+      <%= link_to "LOUER !", new_offer_booking_path(@offer), class: "btn btn-purple button-85 col-3" %>
     </div>
   <% else %>
     <div class="row justify-content-center">

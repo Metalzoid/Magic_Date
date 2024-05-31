@@ -1,11 +1,9 @@
 <% @bookings_vendor.each do |booking| %>
   <div class="card-booking col-5 p-0 mb-4">
     <div class="border-radius w-100 h-100">
-      <% if current_user.role == "vendor" %>
-        <h5 class="card-title text-center">Réservé par : <%= booking.user.name %></h5>
-      <% end %>
+      <h5 class="card-title text-center">Réservé par : <%= booking.user.name %></h5>
       <div class="card-body px-5 py-3 rounded w-100 shadow bg-purple gap-2">
-        <ul class="list-group list-group-flush text-center">
+        <ul class="list-group list-group-flush text-center" style="overflow-wrap: anywhere;">
           <li class="list-group-item bg-gray rounded my-1 ">Réservation :<br> <%= booking.start_date %> au <%= booking.end_date %></li>
           <li class="list-group-item bg-gray rounded my-1">Commentaire : <br>
           <% if booking.comment.size >= 80 %>

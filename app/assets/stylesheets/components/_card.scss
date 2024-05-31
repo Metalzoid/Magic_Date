@@ -30,6 +30,8 @@
     width: 300px;
     overflow: hidden;
     transition: all 0.3s;
+    box-shadow: #998787 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;;
+
     &:hover {
       transform: scale(1.03);
       box-shadow: 2px 2px 20px rgba(0, 0, 0, 1);

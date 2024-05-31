@@ -1,13 +1,22 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+// @import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Quattrocento:wght@400;700&family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Acme&family=Orbitron:wght@400..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=Orbitron:wght@400..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap");
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+$body-font: "Teachers", sans-serif;
 // $headers-font: "Nunito", "Helvetica", "sans-serif";
-$headers-font: "Tenor Sans", sans-serif;
+$headers-font: "Teachers", sans-serif;
+
 $title-home-font: "Abril", "serif";
+// $title-home-font: "Orbitron", sans-serif;
+
+h1 {
+  font-family: Bebas Neue, sans-serif !important;
+}
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 400 to 900
 

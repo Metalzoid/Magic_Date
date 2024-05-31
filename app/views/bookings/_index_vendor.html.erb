@@ -16,7 +16,7 @@
           <li class="list-group-item bg-gray rounded my-1">Prix total de la prestation : <%= booking.total_price %> €</li>
         </ul>
         <%= simple_form_for booking, data: { controller: "status-booking", status_booking_target: "form", action: "change->status-booking#status"} do |f| %>
-          <%= f.input :status, label: false, collection: Booking::STATUS %>
+          <%= f.input :status, label: false, collection: Booking::STATUS, include_blank: false %>
         <% end %>
       </div>
     </div>

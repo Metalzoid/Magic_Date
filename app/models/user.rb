@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def average
     result = 0
     ratings.each { |rating| result += rating.score }
-    result /= ratings.count if ratings.count.positive?
+    result = result.fdiv(ratings.count) if ratings.count.positive?
     return result
   end
 end

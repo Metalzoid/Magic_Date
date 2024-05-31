@@ -3,11 +3,8 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.new
     @favourite.user = current_user
     @favourite.offer_id = params[:offer_id]
-    if @favourite.save
-      redirect_to root_path
-    else
-      redirect_to root_path
-    end
+    @favourite.save
+    redirect_to root_path
   end
 
   def destroy

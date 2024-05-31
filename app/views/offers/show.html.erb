@@ -24,11 +24,12 @@
       </div>
     </div>
   </div>
-  <% if @offer.user != current_user %>
+
+  <% if @offer.user != current_user && current_user.role == "client"%>
     <div class="row mt-5 justify-content-center">
       <%= link_to "LOUER !", new_offer_booking_path(@offer), class: "btn btn-purple button-85 col-3" %>
     </div>
-  <% else %>
+  <% elsif @offer.user == current_user %>
     <div class="row justify-content-center">
       <%= link_to 'Editer cette offre', edit_offer_path(@offer), class: "btn btn-purple m-5 col-2 button-85", role: "button" %>
       <%= link_to 'Supprimer cette offre', offer_path(@offer), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" }, class: "btn btn-purple m-5 col-2 button-85", role: "button" %>

@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :offers, except: %i[index] do
     resources :bookings, only: %i[create new]
   end
-  resources :bookings, only: %i[index destroy update]
+  resources :bookings, only: %i[index destroy update] do
+    resources :ratings, only: %i[create new]
+  end
 end

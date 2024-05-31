@@ -1,8 +1,17 @@
 class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_offer, only: %i[show edit destroy update]
+
   def index
-    @offers = Offer.all
+    if params[:search]
+      if params[:search][:query] == ""
+        @offers = Offer.all
+      else
+        @offers = Offer.where(category: params[:search][:query])
+      end
+    else
+      @offers = Offer.all
+    end
   end
 
   def show

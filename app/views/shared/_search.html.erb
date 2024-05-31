@@ -1,0 +1,6 @@
+<%= simple_form_for :search, url: root_path, method: :get, data: {controller: "search", search_target: "form", action: "change->search#submitform"} do |f| %>
+  <% params[:search] ? defaultValue = params[:search][:query] : defaultValue = "" %>
+  <div class="search-form-control form-group">
+    <%= f.input :query, label: "Filtres : ", required: false, collection: Offer::CATEGORIES, class: "form-control string required", selected: defaultValue, include_blank: true %>
+  </div>
+<% end %>

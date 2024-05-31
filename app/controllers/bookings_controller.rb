@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings_client = Booking.where(user: current_user)
-    @bookings_vendor = Booking.joins(:offer).where(offers: { user: current_user })
+    @bookings_vendor = Booking.joins(:offer).where(offers: { user: current_user }).sort
   end
 
   def new
@@ -23,6 +23,13 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.status = params[:booking][:status]
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
   private

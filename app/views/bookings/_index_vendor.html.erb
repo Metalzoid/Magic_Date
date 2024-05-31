@@ -1,0 +1,24 @@
+<% @bookings_vendor.each do |booking| %>
+  <div class="card-booking col-5 p-0 mb-4">
+    <div class="border-radius w-100 h-100">
+      <% if current_user.role == "vendor" %>
+        <h5 class="card-title text-center">Réservé par : <%= booking.user.name %></h5>
+      <% end %>
+      <div class="card-body px-5 py-3 rounded w-100 shadow bg-purple gap-2">
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item bg-gray rounded my-1 ">Réservation :<br> <%= booking.start_date %> au <%= booking.end_date %></li>
+          <li class="list-group-item bg-gray rounded my-1">Commentaire : <br>
+          <% if booking.comment.size >= 80 %>
+            <%= booking.comment[0..80]%> ...
+          <% else %>
+            <%= booking.comment %>
+          <% end %></li>
+          <li class="list-group-item bg-gray rounded my-1">Prix total de la prestation : <%= booking.total_price %> €</li>
+        </ul>
+        <%= simple_form_for booking, data: { controller: "status-booking", status_booking_target: "form", action: "change->status-booking#status"} do |f| %>
+          <%= f.input :status, label: false, collection: Booking::STATUS %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

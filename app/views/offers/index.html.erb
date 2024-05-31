@@ -50,11 +50,11 @@
         <% if user_signed_in? && offer.user != current_user %>
           <% if !offer.favourites.exists?(user: current_user) %>
             <%= link_to favourites_create_path(offer_id: offer) do %>
-              <i class="fa-solid fa-heart position-absolute" style="color: #ff0000; top: 15px; right: 15px; font-size: 30px;"></i>
+              <i class="fa-solid fa-heart position-absolute" style="top: 15px; right: 15px; font-size: 30px;"></i>
             <% end %>
           <% else %>
             <%= link_to favourites_destroy_path(offer), data: { turbo_method: :delete } do%>
-              <i class="fa-regular fa-heart position-absolute" style="top: 15px; right: 15px; font-size: 30px;"></i>
+              <i class="fa-regular fa-heart position-absolute" style="color: #ff0000; top: 15px; right: 15px; font-size: 30px;"></i>
             <% end %>
           <% end %>
         <% end %>

@@ -6,7 +6,7 @@ class FavouritesController < ApplicationController
     if @favourite.save
       redirect_to root_path
     else
-      redirect_to root_path, alert: "Cette offre est déjà en favoris !"
+      redirect_to root_path
     end
   end
 
